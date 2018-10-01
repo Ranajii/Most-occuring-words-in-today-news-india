@@ -1,9 +1,4 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Mon Oct  1 13:31:22 2018
 
-@author: vishal
-"""
 from selenium import webdriver
 # Using Chrome to access web
 driver = webdriver.Chrome(r"C:\Users\visha\chromedriver")
@@ -21,7 +16,7 @@ l = [i.lower() for i in headlines]
 
 'removing STOP words'
 from nltk.corpus import stopwords
-stop_words = set(stopwords.words('english')) #some words are just plain useless, and are filler words
+stop_words = set(stopwords.words('english')) #some words are just plain useless, and are filler words so better remove them
 
 SW = []
 for k in l:
@@ -29,15 +24,4 @@ for k in l:
         SW.append(k)
 from nltk.probability import FreqDist
 fdist = FreqDist(SW)
-fdist.plot(5,cumulative=True) #this will plot the frquency plot for 10 most occuring words in the URL
-      
-  
-
-
-
-
-
-
-
-
-
+fdist.plot(10,cumulative=True) #this will plot the frquency plot for 10 most occuring words in the URL
